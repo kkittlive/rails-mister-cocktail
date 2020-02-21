@@ -1,0 +1,22 @@
+<div class="container" id="index">
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col py-5">
+      <h1>All Cocktails</h1>
+      <h5><%= link_to 'Add a new cocktail', new_cocktail_path %></h5>
+    </div>
+
+    <% @cocktails.each do |cocktail| %>
+      <% width = rand(395..405) %>
+      <% height = rand(195..205) %>
+      <% src = "https://source.unsplash.com/random/#{width}x#{height}/" %>
+      <div class="col py-5">
+        <div class="card border-0" style="width: 100%;">
+          <img src=<%= src %> class="card-img-top" alt="...">
+          <div class="card-body bg-transparent">
+            <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<% def delete_dose(dose) %>
+  <%= link_to "Delete ingredient", cocktail_dose_path(@cocktail, dose),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<div class="container">
+  <div class="card mx-auto border-0" style="width: 50%;">
+    <img src="https://source.unsplash.com/random/400x200/" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= @cocktail.name %></h5>
+      <% @cocktail.doses.each do |dose| %>
+        <p class="card-text"><%= dose.description %> - <%= dose.ingredient.name %> <% delete_dose(dose) %></p>
+      <% end %>
+      <%= link_to 'Add an ingredient to this cocktail',  new_cocktail_dose_path(@cocktail.id), class: 'btn btn-primary' %>
+      </br></br>
+      <%= link_to 'Return to full cocktail list', cocktails_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
