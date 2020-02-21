@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="card mx-auto border-0" style="width: 50%;">
-    <img src="https://source.unsplash.com/random/400x200/" class="card-img-top" alt="...">
+    <%= cl_image_tag @cocktail.photo.key, height: 200, width: 400, crop: :fill %>
     <div class="card-body">
       <h5 class="card-title"><%= @cocktail.name %></h5>
       <% @cocktail.doses.each do |dose| %>
@@ -18,3 +18,5 @@
     </div>
   </div>
 </div>
+
+<!-- <img src="https://source.unsplash.com/random/400x200/" class="card-img-top" alt="..."> -->
